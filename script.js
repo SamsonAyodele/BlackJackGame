@@ -19,7 +19,7 @@ playerEl.textContent = player.name + ": $" + player.chips
 
 function getRandomCard() {
     //if 1 return 11
-    //if 11-13 retuen 10
+    //if 11-13 return 10
     let randomNumber= Math.floor (Math.random() * 13) + 1
     if (randomNumber > 10 ) {
         return 10
@@ -41,7 +41,7 @@ function startGame() {
     }
 
 function renderGame() {
-    // 3. Render the cars on the page using this format -> "Cards: 10 4"
+    // 3. Render the cards on the page using this format -> "Cards: 10 4"
     //render out firstCard and secondCard
     cardsEl.textContent = "cards: " // + cards[0] + " " + cards[1]
     //create a for loops that renders out all the cards instead of just two
@@ -52,7 +52,7 @@ function renderGame() {
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
-    } else if (sum === 21) {
+    } else if (sum >= 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
     } else {
@@ -68,7 +68,7 @@ function newCard() {
          // console.log("draw a new card")
         //create a card variable and add number between 2-11 
         let card = getRandomCard()
-        //add thenew card to the sum variable
+        //add the new card to the sum variable
         sum += card
         //push the card to he cards array 
         cards.push(card)
@@ -78,5 +78,6 @@ function newCard() {
     }
    
 }
+
 
 
